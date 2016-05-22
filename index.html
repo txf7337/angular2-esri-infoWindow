@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>info window</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.16/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.16/system-polyfills.js"></script>
+    <script src="//code.angularjs.org/tools/system.js"></script>
+    <script src="//code.angularjs.org/tools/typescript.js"></script>
+    <script src="//code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
+    <script src="//code.angularjs.org/2.0.0-beta.15/Rx.js"></script>
+    <script src="//code.angularjs.org/2.0.0-beta.15/angular2.js"></script>
+
+    <script src="//js.arcgis.com/3.16/"></script>
+    <script>
+        // configure system.js
+        System.config({
+            packages: {
+                app: {
+                    defaultExtension: 'ts'
+                }
+            }
+        });
+        require(['esri/map', "esri/layers/GraphicsLayer", "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleLineSymbol", "esri/Color", "esri/geometry/Point", "esri/graphic", "esri/toolbars/draw", "esri/geometry/screenUtils"], function (Map, GraphicsLayer, SimpleMarkerSymbol, SimpleLineSymbol, Color, Point, graphic, Draw, ScreenUtils) {
+            System.register('esri', [], function (exports) {
+                return {
+                    setters: [],
+                    execute: function () {
+                        exports('Map', Map);
+                        exports('GraphicsLayer', GraphicsLayer);
+                        exports('SimpleMarkerSymbol', SimpleMarkerSymbol);
+                        exports('SimpleLineSymbol', SimpleLineSymbol);
+                        exports('Color', Color);
+                        exports('Point', Point);
+                        exports('Graphic', graphic);
+                        exports('Draw', Draw);
+                        exports('ScreenUtils', ScreenUtils);
+                    }
+                }
+            });
+            System.import('app/main')
+                    .then(null, console.error.bind(console));
+        });
+    </script>
+</head>
+<body>
+<my-app>loading...</my-app>
+</body>
+</html>
