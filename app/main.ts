@@ -1,6 +1,5 @@
-import {bootstrap}  from 'angular2/platform/browser';
-//import {enableProdMode}   from 'angular2/core';
-import {AppComponent}   from './app.component';
+import {bootstrap}        from 'angular2/platform/browser';
 
-//enableProdMode();
-bootstrap(AppComponent, []);
+import {AppComponent}     from './app.component';
+
+bootstrap(AppComponent);

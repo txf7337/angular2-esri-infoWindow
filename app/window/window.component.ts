@@ -1,13 +1,13 @@
 import {Component, OnInit, ElementRef} from 'angular2/core';
 
-import {Map, Point, ScreenUtils} from 'esri';
+import {Map, ScreenUtils} from 'esri';
 import {WindowService} from './window.service.ts';
 import {TestComponent} from '../test.component';
 
 @Component({
     selector: 'window',
-    template: `<div *ngIf="!isZoom&&isOpen" style="position:absolute;z-index:40;" [style.top]="screenPoint.y-54+'px'" [style.left]="screenPoint.x+15+'px'"><div class="esriWindow"><div class="windowHeader"><div class="windowTitle">{{info.title}}</div><div class="windowClose" (click)="onClose()"><i class="fa fa-close"></i></div></div><div class="windowContent"><test *ngIf="info.type=='lamp'" [point]="info.point"></test></div></div><div class="windowPointer"></div></div>`,
-    styles: [`.esriWindow{background:white;overflow:hidden;border-radius:5px;}.esriWindow .windowHeader{overflow:hidden;background-color:#44aaf2;}.esriWindow .windowHeader .windowTitle{float:left;font-size:1.2em;margin:5px 10px;}.esriWindow .windowHeader .windowClose{float:right;margin:5px;}.esriWindow .windowHeader .windowClose i{font-size:1.5em;}.esriWindow .windowHeader .windowClose i:hover{color:red;cursor:pointer;}.windowContent{margin:5px;} .windowPointer{position:absolute;top:34px;left:-15px;width:0;height:0;border-top: 20px solid transparent;border-right: 15px solid white;border-bottom: 20px solid transparent;}`],
+    template: `<div *ngIf="!isZoom&&isOpen" style="position:absolute;z-index:40;" [style.top]="screenPoint.y-54+'px'" [style.left]="screenPoint.x+15+'px'"><div class="esriWindow"><div class="windowHeader"><div class="windowTitle">{{info.title}}</div><div class="windowClose" (click)="onClose()"><i class="fa fa-close"></i></div></div><div class="windowContent"><test *ngIf="info.type=='test'" [point]="info.point"></test></div></div><div class="windowPointer"></div></div>`,
+    styles: [`.esriWindow{background:#f9fafc;overflow:hidden;border-radius:5px;}.esriWindow .windowHeader{overflow:hidden;border-bottom:1px solid #ddd;}.esriWindow .windowHeader .windowTitle{float:left;font-size:1.2em;margin:5px 10px;}.esriWindow .windowHeader .windowClose{float:right;margin:5px;}.esriWindow .windowHeader .windowClose i{font-size:1.5em;}.esriWindow .windowHeader .windowClose i:hover{color:red;cursor:pointer;}.windowContent{margin:5px 10px;} .windowPointer{position:absolute;top:34px;left:-15px;width:0;height:0;border-top: 20px solid transparent;border-right: 15px solid #f9fafc;border-bottom: 20px solid transparent;}`],
     inputs: ['map'],
     directives: [TestComponent]
 })
